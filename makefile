@@ -1,7 +1,14 @@
+CC=gcc
+HEADER=./include
+SRC=./src
+EXECUTABLE=./bin/rc
+
 .PHONY:clean
 
-all: rc.c
-	gcc rc.c -o rc
+all:${EXECUTABLE}
+
+${EXECUTABLE}: ${SRC}/*.c
+	${CC} -I${HEADER} $^ -o $@
 
 clean:
-	rm ./rc
+	rm ./bin/rc
